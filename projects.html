@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+
+    <title>Manasa H K</title>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <h1>Manasa H K</h1>
+        </div>
+
+        <ul id="menuList">
+            <li><a href="index.html">About Me</a></li>
+            <li><a href="education.html">Education</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="certificates.html">Certificates</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="menu-icon">
+            <i class="fa-solid fa-bars" onclick="toggleMenu()"></i>
+        </div>
+    </nav>
+    <script>
+        let menuList = document.getElementById("menuList");
+        menuList.style.maxHeight = "0px";
+
+        function toggleMenu() {
+            if (menuList.style.maxHeight == "0px") {
+                menuList.style.maxHeight = "300px";
+            } else {
+                menuList.style.maxHeight = "0px";
+            }
+        }
+    </script>
+    <script src="https://kit.fontawesome.com/e0562795f4.js" crossorigin="anonymous"></script>
+    <h2 style="text-align: center;font-size: 40px;">Projects</h2>
+
+    <div class="project-card">
+        <img src="https://www.ecomsecurity.org/wp-content/uploads/2016/10/atm-hack.jpg">
+        <div class="project-details">
+            <h3>💳 ATM Interface System</h3>
+            <p>
+                GitHub: <a href="https://github.com/manasahk28/ATM-Interface"><i>ATM Interface</i></a><br>
+            A realistic simulation of an ATM machine with user authentication, language selection, and transaction processing.
+            Implemented secure login, PIN verification, and multi-account handling.<br>
+            Supported actions like withdrawal, mini statement, balance check</p>
+
+        
+        </div>
+    </div>
+
+        
+        
+
+        <p><img src="https://learn.g2.com/hubfs/file-storage-2.png"> Cloud File Storage System
+            🔗 GitHub Repo
+            👥 Team Size: 2
+            🛠️ My Role:
+            
+            Built backend using Python Flask & SQLite3
+            
+            Integrated file upload/download/delete features
+            
+            Designed responsive UI using HTML, CSS & Bootstrap
+            
+            Deployed on Render for live access
+            
+            A mini cloud drive to store and manage files online securely and efficiently.</p>
+
+
+            <p><img src="https://jadbio.com/jadbio/wp-content/uploads/2023/01/Feature-Signature-Discovery-for-Autism-Detection.jpg">🧠 Autism Detection using ML
+            🔗 GitHub Repo
+            👥 Team Size: Solo Project
+            🛠️ My Role:
+            
+            Cleaned and encoded autism screening data
+            
+            Performed feature selection and trained ML models using Scikit-learn
+            
+            Evaluated results using accuracy, precision, recall
+            
+            Visualized insights using Matplotlib
+            
+            A machine learning model to predict autism spectrum disorder using behavioral and social data.</p>
+
+            
+           <p><img src="https://miro.medium.com/v2/da:true/resize:fit:1200/0*IlKm5A2kh46gzU9j"> 🍽️ Recipe Recommendation System
+            🔗 GitHub Repo
+            👥 Team Size: 2
+            🛠️ My Role:
+            
+            Processed dataset using NLP techniques
+            
+            Implemented content-based filtering using cosine similarity
+            
+            Created a Streamlit UI for live user interaction
+            
+            Allowed ingredient-based and mood-based recipe suggestions
+            
+            An intelligent food recommender that suggests tasty dishes based on your kitchen inventory and cravings.
+            
+            </p>
+            
+
+</body>
+</html>

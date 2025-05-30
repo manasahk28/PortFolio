@@ -1,0 +1,24 @@
+/* nav{
+    padding: 0px;
+
+    list-style-type: none;      /*Remove bullet points*/
+    background-color: rgb(74, 73, 73);     /*Background color of the navbar*/
+    padding: 0px;            /*Remove padding*/
+    margin: 0px;             /*Remove margin*/  
+    overflow: hidden;       /*Clear floats*/
+}
+.navbar a{
+    color: white;
+    text-decoration: none;    /*Remove underline from links*/
+    padding: 15px;  
+    display: block;         /*Make links block level elements*/
+    text-align: center;    /*Center align text in links*/
+}
+
+.navbar a:hover{
+    background-color: rgb(100, 100, 100); /*Change background color on hover*/
+}
+
+.navbar li{
+    float: left;            /*Make list items float to the left*/
+} */
