@@ -53,6 +53,10 @@ nav ul li a{
         gap: 0; /*No gap between items in dropdown*/
         overflow: hidden; /*Hide overflow for dropdown*/
     }
+    .logo{
+        margin: 0; /*Remove margin from logo on small screens*/
+        padding: 10px; /*Padding around the logo*/
+    }
     nav ul li{
         padding: 8px; /*Padding for list items in dropdown*/
     }
@@ -91,10 +95,14 @@ nav ul li a{
 .project-card img{
     width: 200px; /*Width of the project image*/
     height: auto; /*Height of the project image*/
-    border-radius: 12px; /*Rounded corners for project image*/
+    border-radius: 5px; /*Rounded corners for project image*/
     margin-right: 20px; /*Space between image and text*/
 }
 
+.project-header{
+    font-size: 28px; /*Font size for project header*/
+    margin-bottom: 10px; /*Space below project header*/
+}
 .project-details{
     flex: 1; /*Take remaining space for project details*/
 }
@@ -111,4 +119,80 @@ nav ul li a{
 
 .project-details a:hover{
     text-decoration: underline; /*Underline on hover for links*/
+}
+
+/* 🌟 Media Query for Small Screens */
+@media (max-width: 768px) {
+  .project-card {
+    flex-direction: column;
+    text-align: left;
+    align-items: center; /*Center items horizontally*/
+    margin-left: 40px; /*Reduce left margin for small screens*/
+    margin-right: 40px; /*Reduce right margin for small screens*/
+}
+    .project-header h2 {
+      font-size: 30px; /*Reduce font size for project header on small screens*/
+    }
+   .project-details h2 {
+      font-size: 20px; /*Reduce font size for project title on small screens*/
+    }
+  .project-card h3{
+    text-align: center;
+  }
+
+  .project-image {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .project-description h3 {
+    font-size: 1.0rem;
+  }
+
+  .project-description p {
+    font-size: 0.9rem;
+  }
+
+  .project-description a {
+    font-size: 0.9rem;
+  }
+}
+
+/* Certificates */
+.certificate-list {
+  display: flex;
+  flex-direction: column;
+  margin-left: 200px;
+  margin-right: 200px; /*Margin for certificate list*/
+  margin-bottom: 50px;
+}
+.certificate-list h4 {
+  font-size: 15px; /*Font size for certificate titles*/
+  margin: 10px;
+  
+}
+.certificate-list a {
+  text-decoration: none; /*Remove underline from links*/
+}
+.certificate-list a:hover {
+    
+    text-decoration: underline; /*Underline on hover for links*/
+}
+
+.certificate-list #text {
+    color: #49494a; /*Color for the bullet point*/
+    margin-left: 24px;
+}
+/* 🌟 Media Query for Small Screens */
+@media (max-width: 768px) {
+    .certificate-list {
+        margin-left: 30px; /*Reduce left margin for small screens*/
+        margin-right: 30px; /*Reduce right margin for small screens*/
+    }
+    .certificate-list h4 {
+        font-size: 14px; /*Reduce font size for certificate titles on small screens*/
+    }
+    .project-header h2 {
+      font-size: 30px; /*Reduce font size for project header on small screens*/
+    }
 }
