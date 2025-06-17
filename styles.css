@@ -78,7 +78,28 @@ nav ul li a{
     padding: 10px;     
     font-size: 20px;
 }
+ 
+.contact-details p:hover{
+    color: #6b6b6c; /*Change color on hover for contact details*/
 
+}
+.contact-card{
+    margin: 50px;
+    margin-left: 300px;
+    margin-right: 300px;
+    padding: 20px; /*Padding around contact card*/
+    border-radius: 12px; /*Rounded corners for contact card*/
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /*Shadow effect for contact card*/
+}   
+@media (max-width: 768px) {
+    .contact-card {
+        margin-left: 40px; /*Reduce left margin for small screens*/
+        margin-right: 40px; /*Reduce right margin for small screens*/
+    }
+    .contact-details p {
+        font-size: 16px; /*Reduce font size for contact details on small screens*/
+    }
+}
 
 .project-card{
     margin: 20px;
@@ -165,6 +186,17 @@ nav ul li a{
   margin-left: 200px;
   margin-right: 200px; /*Margin for certificate list*/
   margin-bottom: 50px;
+  padding: 20px; /*Padding around certificate list*/
+  background-color: #fdfdfd;
+  border: none;
+  border-radius: 5px;
+  font-family: 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease;
+}
+.certificate-list:hover {
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1); /*Shadow effect on hover for certificate list*/
 }
 .certificate-list h4 {
   font-size: 15px; /*Font size for certificate titles*/
@@ -195,4 +227,31 @@ nav ul li a{
     .project-header h2 {
       font-size: 30px; /*Reduce font size for project header on small screens*/
     }
+}
+
+/* Education Details */
+.education-card {
+  background-color: #fdfdfd;
+  border: none;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 20px 50px;
+  font-family: 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease;
+}
+
+.education-card:hover {
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+}
+
+.education-card p {
+  margin: 10px 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+.education-card strong {
+  color: #484747; /* your orange theme */
 }
