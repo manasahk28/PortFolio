@@ -14,12 +14,12 @@ nav{
 }
 .logo{
     color: white; /*Text color of the logo*/
-    margin: 20px;
+    margin: 50px;
     
 }
 nav ul{
     display: flex; /*Use flexbox for the list*/
-    gap: 30px; /*Space between list items*/
+    gap: 10px; /*Space between list items*/
     align-items: center;
 }
 
@@ -78,6 +78,8 @@ nav ul li a{
 
 .project-card{
     margin: 20px;
+    margin-left: 80px;
+    margin-right: 80px;
     display: flex; /*Use flexbox for layout*/
     align-items: center; /*Center items vertically*/
     margin-bottom: 40px; /*Space between project cards*/
