@@ -1,6 +1,7 @@
 body{
     margin: 0px;            /*Remove default margin from body*/
     padding: 0px;           /*Remove default padding from body*/
+    background-color: #e4e4e6;
 }
 
 nav{
@@ -88,6 +89,7 @@ nav ul li a{
     margin-left: 300px;
     margin-right: 300px;
     padding: 20px; /*Padding around contact card*/
+    background-color: #fdfdfd;
     border-radius: 12px; /*Rounded corners for contact card*/
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /*Shadow effect for contact card*/
 }   
@@ -106,7 +108,6 @@ nav ul li a{
     margin-left: 80px;
     margin-right: 80px;
     display: flex; /*Use flexbox for layout*/
-    align-items: center; /*Center items vertically*/
     margin-bottom: 40px; /*Space between project cards*/
     padding: 20px; /*Padding around project cards*/ 
     border-radius: 12px; /*Rounded corners for project cards*/
@@ -121,8 +122,12 @@ nav ul li a{
 }
 
 .project-header{
-    font-size: 28px; /*Font size for project header*/
+    text-align: left;
+    font-size: 24px; /*Font size for project header*/
     margin-bottom: 10px; /*Space below project header*/
+    font-family: 'Segoe UI', sans-serif;
+    color: #434342; /*Color for project header*/
+
 }
 .project-details{
     flex: 1; /*Take remaining space for project details*/
@@ -254,4 +259,52 @@ nav ul li a{
 
 .education-card strong {
   color: #484747; /* your orange theme */
+}
+
+/* About Me */
+.about-me {
+  padding: 30px;
+  border-radius: 12px;
+  /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); */
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+  margin-bottom: 40px;
+}
+
+.about-me h2 {
+  color: #434342;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  margin-left: 36px;
+}
+
+.about-me p {
+    margin-left: 36px;
+    margin-right: 36px;
+    justify-content: space-around;
+  line-height: 1.6;
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+.resume-container {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+.resume-button {
+  padding: 12px 20px;
+  background-color: #676866;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 2px;
+  transition: background-color 0.3s ease, transform 0.2s;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.resume-button:hover {
+  background-color: #828180;
+  transform: scale(1.03);
 }
