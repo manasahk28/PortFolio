@@ -4,6 +4,10 @@ body{
     background-color: #e4e4e6;
 }
 
+body::-webkit-scrollbar {
+  display: none;
+}
+
 nav{
     background-color: rgb(74, 73, 73); /*Background color of the navbar*/
     padding: 10px;          /*Padding around the navbar*/
@@ -16,7 +20,13 @@ nav{
 .logo{
     color: white; /*Text color of the logo*/
     margin: 50px;
-    
+    cursor: pointer;
+}
+.logo a{
+    text-decoration: none; /*Remove underline from logo link*/
+    color: white; /*Text color of the logo link*/
+    font-size: 24px; /*Font size of the logo link*/
+    font-family: 'Segoe UI', sans-serif; /*Font family for the logo link*/
 }
 nav ul{
     display: flex; /*Use flexbox for the list*/
@@ -89,7 +99,7 @@ nav ul li a{
     margin-left: 300px;
     margin-right: 300px;
     padding: 20px; /*Padding around contact card*/
-    background-color: #fdfdfd;
+    background-color: #f3f1f1;
     border-radius: 12px; /*Rounded corners for contact card*/
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /*Shadow effect for contact card*/
 }   
@@ -111,6 +121,7 @@ nav ul li a{
     margin-bottom: 40px; /*Space between project cards*/
     padding: 20px; /*Padding around project cards*/ 
     border-radius: 12px; /*Rounded corners for project cards*/
+    background-color: #f3f1f1;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /*Shadow effect for project cards*/
 }
 
@@ -192,7 +203,7 @@ nav ul li a{
   margin-right: 200px; /*Margin for certificate list*/
   margin-bottom: 50px;
   padding: 20px; /*Padding around certificate list*/
-  background-color: #fdfdfd;
+  background-color: #f3f1f1;
   border: none;
   border-radius: 5px;
   font-family: 'Segoe UI', sans-serif;
@@ -236,7 +247,7 @@ nav ul li a{
 
 /* Education Details */
 .education-card {
-  background-color: #fdfdfd;
+  background-color: #f3f1f1;
   border: none;
   border-radius: 5px;
   padding: 20px;
@@ -272,6 +283,7 @@ nav ul li a{
 }
 
 .about-me h2 {
+  margin-top: 0px;
   color: #434342;
   margin-bottom: 20px;
   font-size: 1.8rem;
@@ -285,12 +297,15 @@ nav ul li a{
   line-height: 1.6;
   font-size: 1rem;
   margin-bottom: 15px;
+  text-align: justify; /* Justify text for better readability */
 }
 
 .resume-container {
   display: flex;
   justify-content: center;
   margin: 30px 0;
+      margin-top: -60px;
+
 }
 
 .resume-button {
@@ -302,6 +317,7 @@ nav ul li a{
   border-radius: 2px;
   transition: background-color 0.3s ease, transform 0.2s;
   font-family: 'Segoe UI', sans-serif;
+
 }
 
 .resume-button:hover {
