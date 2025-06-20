@@ -19,11 +19,14 @@ nav{
     justify-content: space-between; /*Space between items*/
     position: relative; /*Position relative for dropdowns*/
     height: 70px; /*Height of the navbar*/
+    font-family: 'Segoe UI', sans-serif; /*Font family for the logo link*/
 }
 .logo{
     color: white; /*Text color of the logo*/
     margin: 50px;
     cursor: pointer;
+    font-family: 'Segoe UI', sans-serif; /*Font family for the logo link*/
+
 }
 .logo a{
     text-decoration: none; /*Remove underline from logo link*/
