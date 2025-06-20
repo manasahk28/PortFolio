@@ -3,7 +3,10 @@ body{
     padding: 0px;           /*Remove default padding from body*/
     background-color: #e4e4e6;
 }
-
+html, body{
+  width: 100%;  
+  overflow-x: hidden; /*Set width of html and body to 100%*/
+}
 body::-webkit-scrollbar {
   display: none;
 }
@@ -65,7 +68,7 @@ nav ul li a{
         overflow: hidden; /*Hide overflow for dropdown*/
     }
     .logo{
-        margin: 0; /*Remove margin from logo on small screens*/
+        margin: 5px; /*Remove margin from logo on small screens*/
         padding: 10px; /*Padding around the logo*/
     }
     nav ul li{
@@ -164,11 +167,14 @@ nav ul li a{
     flex-direction: column;
     text-align: left;
     align-items: center; /*Center items horizontally*/
-    margin-left: 40px; /*Reduce left margin for small screens*/
-    margin-right: 40px; /*Reduce right margin for small screens*/
-}
+    margin-left: 30px; /*Reduce left margin for small screens*/
+    margin-right: 30px; /*Reduce right margin for small screens*/
+    margin-top: 50px;
+    margin-bottom: 40px;
+    padding-bottom: 10px;
+  }
     .project-header h2 {
-      font-size: 30px; /*Reduce font size for project header on small screens*/
+      font-size: 20px; /*Reduce font size for project header on small screens*/
     }
    .project-details h2 {
       font-size: 20px; /*Reduce font size for project title on small screens*/
@@ -234,14 +240,22 @@ nav ul li a{
 /* 🌟 Media Query for Small Screens */
 @media (max-width: 768px) {
     .certificate-list {
+      margin-top: 40px;
         margin-left: 30px; /*Reduce left margin for small screens*/
         margin-right: 30px; /*Reduce right margin for small screens*/
     }
     .certificate-list h4 {
-        font-size: 14px; /*Reduce font size for certificate titles on small screens*/
+        font-size: 12px; /*Reduce font size for certificate titles on small screens*/
     }
     .project-header h2 {
-      font-size: 30px; /*Reduce font size for project header on small screens*/
+      font-size: 1.4rem; /*Reduce font size for project header on small screens*/
+      padding-bottom: 0px;
+      margin-bottom: -30px;
+    }
+    #text{
+      font-size: 12px;
+      padding-top: 0px;
+      margin-top: -10px;
     }
 }
 
@@ -272,8 +286,21 @@ nav ul li a{
   color: #484747; /* your orange theme */
 }
 
+@media (max-width: 768px) {
+ .education-card{
+  padding: 13px;
+  margin: 20px;
+    margin-top: 50px;
+ }
+ .education-card p{
+  font-size: 12px;
+ }
+}
+
 /* About Me */
 .about-me {
+  overflow-x: hidden;
+  width:fit-content;
   padding: 30px;
   border-radius: 12px;
   /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); */
@@ -304,7 +331,7 @@ nav ul li a{
   display: flex;
   justify-content: center;
   margin: 30px 0;
-      margin-top: -60px;
+  margin-top: -60px;
 
 }
 
@@ -323,4 +350,23 @@ nav ul li a{
 .resume-button:hover {
   background-color: #828180;
   transform: scale(1.03);
+}
+
+
+@media (max-width: 768px) {
+  .about-me{
+    margin: -10px;
+    padding: 5px;
+  }
+  .about-me h2{
+    font-size: 1.4rem;
+    margin-top: 15px;
+    margin-bottom: 10px;
+  }
+  .about-me p{
+    font-size: 0.7rem;
+  }
+  .resume-container{
+    margin-top: -10px;
+  }
 }
