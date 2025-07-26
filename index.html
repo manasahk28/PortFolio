@@ -1,75 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css\styles.css">
-    <title>Manasa H K</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manasa H K</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="https://kit.fontawesome.com/e0562795f4.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
-    <nav>
-        <div class="logo">
-            <h1><a href="index.html">Manasa H K</a></h1>
-        </div>
+  <div class="blur-overlay" id="blurOverlay"></div>
 
-        <ul id="menuList">
-            <li><a href="index.html">About Me</a></li>
-            <li><a href="education.html">Education</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="certificates.html">Certificates</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-        <div class="menu-icon">
-            <i class="fa-solid fa-bars" onclick="toggleMenu()"></i>
-        </div>
-    </nav>
-    <script>
-        let menuList = document.getElementById("menuList");
-        menuList.style.maxHeight = "0px";
+  <nav>
+    <div class="menu-icon" id="menuIcon">
+      <i class="fa-solid fa-bars" onclick="toggleMenu()"></i>
+    </div>
 
-        function toggleMenu() {
-            if (menuList.style.maxHeight == "0px") {
-                menuList.style.maxHeight = "300px";
-            } else {
-                menuList.style.maxHeight = "0px";
-            }
-        }
-    </script>
-    <script src="https://kit.fontawesome.com/e0562795f4.js" crossorigin="anonymous"></script>
+    <div class="logo">
+      <h1><a href="index.html">Manasa H K</a></h1>
+    </div>
 
-    <section class="about-me">
-  <h2>About Me</h2>
-  <p>
-    Hello! I'm <strong>Manasa H K</strong>, 3rd-year B.Tech (Hons) Computer Science and Engineering student at <strong>RV University, Bengaluru</strong>, specialising in <strong>Artificial Intelligence & Machine Learning</strong>. With a solid foundation in core CS concepts and a growing passion for AI-driven solutions, I strive to build tech that's smart, impactful, and people-friendly 💻✨
-  </p>
-  
-  <p>
-    My journey so far has been filled with curiosity and hands-on learning. I've developed real-world projects like an <strong>Online Auction System</strong> for campus students, an <strong>ATM Interface Simulation</strong>, a <strong>Recipe Recommendation System</strong>, and a <strong>Cloud File Storage platform</strong>. Each project helped me blend backend logic with intuitive frontend design — something I truly enjoy!
-  </p>
-  
-  <p>
-    I've also had the incredible opportunity to be part of the prestigious Infosys Foundation <strong>#IAmFutureReady Program</strong> in Hyderabad, where Women Empowerment was the main subject, and learned about personal finance, grooming, and leadership — lessons that go beyond just code.
-  </p>
+    <ul id="menuList" class="sidebar-menu">
+      <li><a href="index.html">About Me</a></li>
+      <li><a href="education.html">Education</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="certificates.html">Certificates</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
 
-  <p>
-    I thrive in collaborative spaces, whether it's working with teammates, presenting my work, or learning from others. My current interests lie in full-stack development, and AIML. I'm constantly exploring new tools and frameworks, always eager to learn and experiment.
-  </p>
+  <section class="about-me">
+    <h2>About Me</h2>
+    <p>
+      Hello! I'm <strong>Manasa H K</strong>, 3rd-year B.Tech (Hons) Computer Science and Engineering student at
+      <strong>RV University, Bengaluru</strong>, specialising in <strong>Artificial Intelligence & Machine
+        Learning</strong>. With a solid foundation in core CS concepts and a growing passion for AI-driven solutions, I
+      strive to build tech that's smart, impactful, and people-friendly 💻✨
+    </p>
+    <p>
+      My journey so far has been filled with curiosity and hands-on learning. I've developed real-world projects like an
+      <strong>Online Auction System</strong> for campus students, an <strong>ATM Interface Simulation</strong>, a
+      <strong>Recipe Recommendation System</strong>, and a <strong>Cloud File Storage platform</strong>. Each project
+      helped me blend backend logic with intuitive frontend design — something I truly enjoy!
+    </p>
+    <p>
+      I've also had the incredible opportunity to be part of the prestigious Infosys Foundation <strong>#IAmFutureReady
+        Program</strong> in Hyderabad, where Women Empowerment was the main subject, and learned about personal finance,
+      grooming, and leadership — lessons that go beyond just code.
+    </p>
+    <p>
+      I thrive in collaborative spaces, whether it's working with teammates, presenting my work, or learning from
+      others. My current interests lie in full-stack development, and AIML. I'm constantly exploring new tools and
+      frameworks, always eager to learn and experiment.
+    </p>
+    <p>
+      When I'm not coding, you'll find me sketching, experimenting with design, or diving into new tech courses online.
+      I'm excited about future internships, research opportunities, and projects that challenge my creativity and
+      skills. 🚀
+    </p>
+    <p>
+      Let's build the future — one line of smart, meaningful code at a time!
+    </p>
+  </section>
 
-  <p>
-    When I'm not coding, you'll find me sketching, experimenting with design, or diving into new tech courses online. I'm excited about future internships, research opportunities, and projects that challenge my creativity and skills. 🚀
-  </p>
+  <div class="resume-container">
+    <a href="assets/ManasaHK_Resume.pdf" download class="resume-button">
+      📄 Download My Resume
+    </a>
+  </div>
 
-  <p>
-    Let's build the future — one line of smart, meaningful code at a time!
-  </p>
-</section>
+  <script>
+    const menu = document.getElementById("menuList");
+    const overlay = document.getElementById("blurOverlay");
 
-<div class="resume-container">
-  <a href="assets/ManasaHK_Resume.pdf" download class="resume-button">
-    📄 Download My Resume
-  </a>
-</div>
+    function toggleMenu() {
+      menu.classList.toggle("open");
+      overlay.classList.toggle("active");
+    }
 
-
+    overlay.addEventListener("click", toggleMenu);
+  </script>
 </body>
+
 </html>

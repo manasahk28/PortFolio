@@ -1,56 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css\styles.css">
-
     <title>Manasa H K</title>
+    <script src="https://kit.fontawesome.com/e0562795f4.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
+    <div class="blur-overlay" id="blurOverlay"></div>
+
     <nav>
+        <div class="menu-icon">
+            <i class="fa-solid fa-bars" onclick="toggleMenu()"></i>
+        </div>
         <div class="logo">
             <h1><a href="index.html">Manasa H K</a></h1>
         </div>
 
-        <ul id="menuList">
+        <ul id="menuList" class="sidebar-menu">
             <li><a href="index.html">About Me</a></li>
             <li><a href="education.html">Education</a></li>
             <li><a href="projects.html">Projects</a></li>
             <li><a href="certificates.html">Certificates</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
-        <div class="menu-icon">
-            <i class="fa-solid fa-bars" onclick="toggleMenu()"></i>
-        </div>
     </nav>
-    <script>
-        let menuList = document.getElementById("menuList");
-        menuList.style.maxHeight = "0px";
 
-        function toggleMenu() {
-            if (menuList.style.maxHeight == "0px") {
-                menuList.style.maxHeight = "300px";
-            } else {
-                menuList.style.maxHeight = "0px";
-            }
-        }
-    </script>
-    <script src="https://kit.fontawesome.com/e0562795f4.js" crossorigin="anonymous"></script>
     <div class="project-header">
-            <h2 style="text-align: center">Projects</h2>
+        <h2 style="text-align: center">Projects</h2>
     </div>
 
     <div class="project-card">
         <img src="images/auction.jpg">
         <div class="project-details">
-            <h3>Online Auction System<span style="color: rgb(11, 185, 11); font-size: 15px;">    (ongoing)</span></h3>
-            <p> 
-                GitHub: <a href="https://github.com/manasahk28/OnlineAuctionSystem" target="_blank" rel="nooperner noreferer"><i>Online Auction System</i></a><br></span>
-            A campus-based auction platform for students to buy and sell items.
-            <br>&#x2022; Built using the MERN stack (MongoDB, Express, React, Node.js).
-            <br>&#x2022; Implemented features like item listing, bidding, user dashboards, and admin approval.
-            <br>&#x2022; Included support for images, tags, condition, warranty, and dummy payment flow.</p>
+            <h3>Online Auction System
+                <!-- <span style="color: rgb(11, 185, 11); font-size: 15px;">    (ongoing)</span> -->
+            </h3>
+            <p>
+                GitHub: <a href="https://github.com/manasahk28/OnlineAuctionSystem" target="_blank"
+                    rel="nooperner noreferer"><i>Online Auction System</i></a><br></span>
+                A campus-based auction platform for students to buy and sell items.
+                <br>&#x2022; Built using the MERN stack (MongoDB, Express, React, Node.js).
+                <br>&#x2022; Implemented features like item listing, bidding, user dashboards, and admin approval.
+                <br>&#x2022; Included support for images, tags, condition, warranty, and dummy payment flow.
+            </p>
         </div>
     </div>
 
@@ -59,54 +55,75 @@
         <img src="images/atm.jpg">
         <div class="project-details">
             <h3>💳 ATM Interface System</h3>
-            <p> 
-                GitHub: <a href="https://github.com/manasahk28/ATM-Interface" target="_blank" rel="nooperner noreferer"><i>ATM Interface</i></a><br>
-            A realistic simulation of an ATM machine with user authentication, language selection, and transaction processing.
-            <br>&#x2022;  Implemented secure login, PIN verification, and multi-account handling.
-            <br>&#x2022;  Supported actions like withdrawal, mini statement, and balance check.</p>
+            <p>
+                GitHub: <a href="https://github.com/manasahk28/ATM-Interface" target="_blank"
+                    rel="nooperner noreferer"><i>ATM Interface</i></a><br>
+                A realistic simulation of an ATM machine with user authentication, language selection, and transaction
+                processing.
+                <br>&#x2022; Implemented secure login, PIN verification, and multi-account handling.
+                <br>&#x2022; Supported actions like withdrawal, mini statement, and balance check.
+            </p>
         </div>
     </div>
 
 
     <div class="project-card">
-        <img src="images\cloud.png">        
+        <img src="images\cloud.png">
         <div class="project-details">
             <h3>☁ Cloud File Storage System</h3>
             <p>
-                GitHub: <a href="https://github.com/manasahk28/File-Storage-System" target="_blank" rel="nooperner noreferer"><i>Cloud File Storage System</i></a><br>
-            A mini cloud drive to securely store and manage files online.
-            <br>&#x2022; Implemented file upload, download, and delete functionalities.
-            <br>&#x2022; Built using Flask, SQLite3, and Bootstrap.
-            <br>&#x2022; Handled file storage logic and deployed it on Render.</p>
+                GitHub: <a href="https://github.com/manasahk28/File-Storage-System" target="_blank"
+                    rel="nooperner noreferer"><i>Cloud File Storage System</i></a><br>
+                A mini cloud drive to securely store and manage files online.
+                <br>&#x2022; Implemented file upload, download, and delete functionalities.
+                <br>&#x2022; Built using Flask, SQLite3, and Bootstrap.
+                <br>&#x2022; Handled file storage logic and deployed it on Render.
+            </p>
         </div>
     </div>
 
 
     <div class="project-card">
-        <img src="images\autism.jpg">        
+        <img src="images\autism.jpg">
         <div class="project-details">
             <h3>🧠 Autism Detection using ML</h3>
             <p>
-                GitHub: <a href="https://github.com/manasahk28/Autism-Detection" target="_blank" rel="nooperner noreferer"><i>Autism Detection using ML</i></a><br>
-            ML model to detect autism based on behavioral responses.
-            <br>&#x2022; Performed data preprocessing, feature encoding, and model training.
-            <br>&#x2022; Achieved high accuracy using classification algorithms.</p>
+                GitHub: <a href="https://github.com/manasahk28/Autism-Detection" target="_blank"
+                    rel="nooperner noreferer"><i>Autism Detection using ML</i></a><br>
+                ML model to detect autism based on behavioral responses.
+                <br>&#x2022; Performed data preprocessing, feature encoding, and model training.
+                <br>&#x2022; Achieved high accuracy using classification algorithms.
+            </p>
         </div>
     </div>
 
 
     <div class="project-card">
-        <img src="images\recipe.jpg">        
+        <img src="images\recipe.jpg">
         <div class="project-details">
             <h3>🍽️ Recipe Recommendation System</h3>
             <p>
-                GitHub: <a href="https://github.com/manasahk28/Recipe-Recommendation-System" target="_blank" rel="nooperner noreferer"><i>Recipe Recommendation System</i></a><br>
-            Recommends recipes based on ingredients and preferences.
-            <br>&#x2022; Built a content-based recommender using cosine similarity.
-            <br>&#x2022; Created a clean interface using Streamlit for user interaction.</p>
+                GitHub: <a href="https://github.com/manasahk28/Recipe-Recommendation-System" target="_blank"
+                    rel="nooperner noreferer"><i>Recipe Recommendation System</i></a><br>
+                Recommends recipes based on ingredients and preferences.
+                <br>&#x2022; Built a content-based recommender using cosine similarity.
+                <br>&#x2022; Created a clean interface using Streamlit for user interaction.
+            </p>
         </div>
     </div>
-            
+
+    <script>
+        const menu = document.getElementById("menuList");
+        const overlay = document.getElementById("blurOverlay");
+
+        function toggleMenu() {
+            menu.classList.toggle("open");
+            overlay.classList.toggle("active");
+        }
+
+        overlay.addEventListener("click", toggleMenu);
+    </script>
 
 </body>
+
 </html>

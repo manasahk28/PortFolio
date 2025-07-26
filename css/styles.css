@@ -1,167 +1,379 @@
-body{
-    margin: 0px;            /*Remove default margin from body*/
-    padding: 0px;           /*Remove default padding from body*/
-    background-color: #e4e4e6;
+body {
+  margin: 0px;
+  /*Remove default margin from body*/
+  padding: 0px;
+  /*Remove default padding from body*/
+  background-color: #e4e4e6;
+  transition: filter 0.4s ease;
+  position: relative;
+  overflow-x: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-html, body{
-  width: 100%;  
-  overflow-x: hidden; /*Set width of html and body to 100%*/
+
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+  /*Set width of html and body to 100%*/
 }
+
 body::-webkit-scrollbar {
   display: none;
 }
 
-nav{
-    background-color: rgb(74, 73, 73); /*Background color of the navbar*/
-    padding: 10px;          /*Padding around the navbar*/
-    display: flex;         /*Use flexbox for layout*/
-    align-items: center; /*Center items vertically*/
-    justify-content: space-between; /*Space between items*/
-    position: relative; /*Position relative for dropdowns*/
-    height: 70px; /*Height of the navbar*/
-    font-family: 'Segoe UI', sans-serif; /*Font family for the logo link*/
-}
-.logo{
-    color: white; /*Text color of the logo*/
-    margin: 50px;
-    cursor: pointer;
-    font-family: 'Segoe UI', sans-serif; /*Font family for the logo link*/
-
-}
-.logo a{
-    text-decoration: none; /*Remove underline from logo link*/
-    color: white; /*Text color of the logo link*/
-    font-size: 24px; /*Font size of the logo link*/
-    font-family: 'Segoe UI', sans-serif; /*Font family for the logo link*/
-}
-nav ul{
-    display: flex; /*Use flexbox for the list*/
-    gap: 10px; /*Space between list items*/
-    align-items: center;
+nav {
+  background-color: rgb(74, 73, 73);
+  /*Background color of the navbar*/
+  padding: 10px;
+  /*Padding around the navbar*/
+  display: flex;
+  /*Use flexbox for layout*/
+  align-items: center;
+  /*Center items vertically*/
+  justify-content: space-between;
+  /*Space between items*/
+  position: relative;
+  /*Position relative for dropdowns*/
+  height: 60px;
+  /*Height of the navbar*/
+  font-family: 'Segoe UI', sans-serif;
+  /*Font family for the logo link*/
 }
 
-nav ul li{
-    text-decoration: none; /*Remove underline from links*/
-    list-style: none; /*Remove bullet points from list items*/
-    font-size: 18px;
+.logo {
+  color: white;
+  /*Text color of the logo*/
+  margin: 50px;
+  cursor: pointer;
+  font-family: 'Segoe UI', sans-serif;
+  /*Font family for the logo link*/
+
 }
 
-nav ul li a{
-    color: white; /*Text color of links*/
-    text-decoration: none; /*Remove underline from links*/
-    padding: 10px 15px; /*Padding around links*/
-    display: block; /*Make links block level elements*/
+.logo a {
+  text-decoration: none;
+  /*Remove underline from logo link*/
+  color: white;
+  /*Text color of the logo link*/
+  font-size: 24px;
+  /*Font size of the logo link*/
+  font-family: 'Segoe UI', sans-serif;
+  /*Font family for the logo link*/
 }
 
-.menu-icon{
-    display: none; /*Hide the menu icon by default*/
+.logo h1 a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
 }
 
+nav ul {
+  display: flex;
+  /*Use flexbox for the list*/
+  align-items: center;
+  /*Center items vertically*/
+  gap: 0px;
+  /* Decrease this value for less space, try 24px or 16px */
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  text-decoration: none;
+  /*Remove underline from links*/
+  list-style: none;
+  /*Remove bullet points from list items*/
+  font-size: 16px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  display: block;
+  transition: transform 0.2s cubic-bezier(0.4, 2, 0.6, 1), color 0.2s;
+}
+
+/* Pop up effect on hover */
+nav ul li a:hover {
+  transform: scale(1.18);
+  color: #1f1f1f; /* Optional: gold/yellow highlight, change as you like */
+  font-weight: 600;
+  z-index: 2;
+}
+
+.menu-icon {
+  margin-left: 14px;
+  display: none;
+  /*Hide the menu icon by default*/
+  font-size: 24px;
+  cursor: pointer;
+  color: white;
+}
+
+/* Sidebar Menu */
+.sidebar-menu {
+  list-style: none;
+  position: fixed;
+  top: 0;
+  left: -280px;
+  width: 200px;
+  height: 100vh;
+  background-color: rgb(74, 73, 73);
+  color: white;
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: left 0.3s ease;
+  z-index: 999;
+  font-size: 18px;
+}
+
+.sidebar-menu a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 0px 0px;
+  margin-right: 30px;
+  transition: transform 0.2s ease;
+}
+
+.sidebar-menu.open {
+  left: 0;
+}
+
+/* When sidebar is active (after clicking the menu icon) */
+.sidebar-menu.active {
+  transform: translateX(0);
+}
+
+/* Blur Overlay */
+.blur-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(3px);
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 998;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.blur-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
 
 @media (max-width: 768px) {
-    nav ul {
-        position: absolute; /*Position the menu absolutely*/
-        top: 70px; /*Position below the navbar*/
-        left: 0; /*Align to the left of the screen*/    
-        right: 0; /*Align to the right of the screen*/
-        flex-direction: column; /*Stack items vertically*/
-        text-align: center; /*Center align text*/
-        background-color: rgb(74, 73, 73); /*Background color of the dropdown menu*/
-        gap: 0; /*No gap between items in dropdown*/
-        overflow: hidden; /*Hide overflow for dropdown*/
-    }
-    .logo{
-        margin: 5px; /*Remove margin from logo on small screens*/
-        padding: 10px; /*Padding around the logo*/
-    }
-    nav ul li{
-        padding: 8px; /*Padding for list items in dropdown*/
-    }
-    .menu-icon {
-        display: block; /*Show the menu icon on small screens*/
-        font-size: 20px; /*Font size for the menu icon*/
-        color: white; /*Color of the menu icon*/    
-        cursor: pointer; /*Pointer cursor for clickable icon*/
-        padding: 10px; /*Padding around the menu icon*/
-    }
-    #menuList{
-        transition: all 0.5s ease; /*Smooth transition for dropdown menu*/
-    }
-}
-
-
-.contact-details{
+  nav ul {
+    position: absolute;
+    /*Position the menu absolutely*/
+    top: 20px;
+    /*Position below the navbar*/
+    left: 0;
+    /*Align to the left of the screen*/
+    right: 0;
+    /*Align to the right of the screen*/
+    flex-direction: column;
+    /*Stack items vertically*/
     text-align: center;
-    padding: 10px;     
+    /*Center align text*/
+    background-color: rgb(74, 73, 73);
+    /*Background color of the dropdown menu*/
+    gap: 30;
+    /*No gap between items in dropdown*/
+    overflow: hidden;
+    /*Hide overflow for dropdown*/
+  }
+
+  .logo {
+    margin: 0 auto !important;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  .logo h1,
+  .logo h1 a {
+    margin: 0 auto !important;
+    text-align: center;
+    width: 100%;
+    font-size: 1.4rem;
+  }
+
+  .logo {
+    margin: 5px;
+    /*Remove margin from logo on small screens*/
+    padding: 10px;
+    /*Padding around the logo*/
+  }
+
+  nav ul li {
+    padding: 20px;
+    /*Padding for list items in dropdown*/
+  }
+
+  .menu-icon {
+    display: block;
+    /*Show the menu icon on small screens*/
     font-size: 20px;
-}
- 
-.contact-details p:hover{
-    color: #6b6b6c; /*Change color on hover for contact details*/
+    /*Font size for the menu icon*/
+    color: white;
+    /*Color of the menu icon*/
+    cursor: pointer;
+    /*Pointer cursor for clickable icon*/
+    padding: 10px;
+    /*Padding around the menu icon*/
+  }
 
+  #menuList {
+    transition: all 0.5s ease;
+    /*Smooth transition for dropdown menu*/
+    gap: 0px;
+  }
+
+  .sidebar-menu {
+    padding-top: 20px;
+    margin-top: 0;
+    margin-left: 0;
+    padding-left: 0;
+    top: 0 !important;
+    width: 250px;
+    align-items: center;
+    /* Sidebar will start from the very top on small screens */
+  }
 }
-.contact-card{
-    margin: 50px;
-    margin-left: 300px;
-    margin-right: 300px;
-    padding: 20px; /*Padding around contact card*/
-    background-color: #f3f1f1;
-    border-radius: 12px; /*Rounded corners for contact card*/
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /*Shadow effect for contact card*/
-}   
+
+/* Show navbar menu and hide hamburger icon on large screens */
+@media (min-width: 900px) {
+  .sidebar-menu {
+    display: flex !important;
+    flex-direction: row;
+    position: static;
+    background: none;
+    box-shadow: none;
+    width: auto;
+    height: auto;
+    gap: 2rem;
+    z-index: 1;
+  }
+
+  .menu-icon {
+    display: none !important;
+  }
+
+  .blur-overlay {
+    display: none !important;
+  }
+}
+
+.contact-details {
+  text-align: center;
+  padding: 10px;
+  font-size: 20px;
+}
+
+.contact-details p:hover {
+  color: #6b6b6c;
+  /*Change color on hover for contact details*/
+}
+
+.contact-card {
+  margin: 50px;
+  margin-left: 300px;
+  margin-right: 300px;
+  padding: 20px;
+  /*Padding around contact card*/
+  background-color: #f3f1f1;
+  border-radius: 12px;
+  /*Rounded corners for contact card*/
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  /*Shadow effect for contact card*/
+}
+
 @media (max-width: 768px) {
-    .contact-card {
-        margin-left: 40px; /*Reduce left margin for small screens*/
-        margin-right: 40px; /*Reduce right margin for small screens*/
-    }
-    .contact-details p {
-        font-size: 16px; /*Reduce font size for contact details on small screens*/
-    }
+  .contact-card {
+    margin-left: 40px;
+    /*Reduce left margin for small screens*/
+    margin-right: 40px;
+    /*Reduce right margin for small screens*/
+  }
+
+  .contact-details p {
+    font-size: 16px;
+    /*Reduce font size for contact details on small screens*/
+  }
 }
 
-.project-card{
-    margin: 20px;
-    margin-left: 80px;
-    margin-right: 80px;
-    display: flex; /*Use flexbox for layout*/
-    margin-bottom: 40px; /*Space between project cards*/
-    padding: 20px; /*Padding around project cards*/ 
-    border-radius: 12px; /*Rounded corners for project cards*/
-    background-color: #f3f1f1;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /*Shadow effect for project cards*/
+.project-card {
+  margin: 20px;
+  margin-left: 80px;
+  margin-right: 80px;
+  display: flex;
+  /*Use flexbox for layout*/
+  margin-bottom: 40px;
+  /*Space between project cards*/
+  padding: 20px;
+  /*Padding around project cards*/
+  border-radius: 12px;
+  /*Rounded corners for project cards*/
+  background-color: #f3f1f1;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  /*Shadow effect for project cards*/
 }
 
-.project-card img{
-    width: 200px; /*Width of the project image*/
-    height: auto; /*Height of the project image*/
-    border-radius: 5px; /*Rounded corners for project image*/
-    margin-right: 20px; /*Space between image and text*/
+.project-card img {
+  width: 200px;
+  /*Width of the project image*/
+  height: auto;
+  /*Height of the project image*/
+  border-radius: 5px;
+  /*Rounded corners for project image*/
+  margin-right: 20px;
+  /*Space between image and text*/
 }
 
-.project-header{
-    text-align: left;
-    font-size: 24px; /*Font size for project header*/
-    margin-bottom: 10px; /*Space below project header*/
-    font-family: 'Segoe UI', sans-serif;
-    color: #434342; /*Color for project header*/
+.project-header {
+  text-align: left;
+  font-size: 24px;
+  /*Font size for project header*/
+  margin-bottom: 10px;
+  /*Space below project header*/
+  font-family: 'Segoe UI', sans-serif;
+  color: #434342;
+  /*Color for project header*/
 
 }
-.project-details{
-    flex: 1; /*Take remaining space for project details*/
+
+.project-details {
+  flex: 1;
+  /*Take remaining space for project details*/
 }
 
-.project-details h2{
-    font-size: 24px; /*Font size for project title*/
-    margin-bottom: 10px; /*Space below project title*/
+.project-details h2 {
+  font-size: 24px;
+  /*Font size for project title*/
+  margin-bottom: 10px;
+  /*Space below project title*/
 }
 
-.project-details a{
-    color: #007bff; /*Link color for project links*/
-    text-decoration: none; /*Remove underline from links*/
+.project-details a {
+  color: #007bff;
+  /*Link color for project links*/
+  text-decoration: none;
+  /*Remove underline from links*/
 }
 
-.project-details a:hover{
-    text-decoration: underline; /*Underline on hover for links*/
+.project-details a:hover {
+  text-decoration: underline;
+  /*Underline on hover for links*/
 }
 
 /* 🌟 Media Query for Small Screens */
@@ -169,20 +381,28 @@ nav ul li a{
   .project-card {
     flex-direction: column;
     text-align: left;
-    align-items: center; /*Center items horizontally*/
-    margin-left: 30px; /*Reduce left margin for small screens*/
-    margin-right: 30px; /*Reduce right margin for small screens*/
+    align-items: center;
+    /*Center items horizontally*/
+    margin-left: 30px;
+    /*Reduce left margin for small screens*/
+    margin-right: 30px;
+    /*Reduce right margin for small screens*/
     margin-top: 50px;
     margin-bottom: 40px;
     padding-bottom: 10px;
   }
-    .project-header h2 {
-      font-size: 20px; /*Reduce font size for project header on small screens*/
-    }
-   .project-details h2 {
-      font-size: 20px; /*Reduce font size for project title on small screens*/
-    }
-  .project-card h3{
+
+  .project-header h2 {
+    font-size: 20px;
+    /*Reduce font size for project header on small screens*/
+  }
+
+  .project-details h2 {
+    font-size: 20px;
+    /*Reduce font size for project title on small screens*/
+  }
+
+  .project-card h3 {
     text-align: center;
   }
 
@@ -209,9 +429,11 @@ nav ul li a{
   display: flex;
   flex-direction: column;
   margin-left: 200px;
-  margin-right: 200px; /*Margin for certificate list*/
+  margin-right: 200px;
+  /*Margin for certificate list*/
   margin-bottom: 50px;
-  padding: 20px; /*Padding around certificate list*/
+  padding: 20px;
+  /*Padding around certificate list*/
   background-color: #f3f1f1;
   border: none;
   border-radius: 5px;
@@ -220,46 +442,63 @@ nav ul li a{
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
   transition: box-shadow 0.3s ease;
 }
+
 .certificate-list:hover {
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1); /*Shadow effect on hover for certificate list*/
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+  /*Shadow effect on hover for certificate list*/
 }
+
 .certificate-list h4 {
-  font-size: 15px; /*Font size for certificate titles*/
+  font-size: 15px;
+  /*Font size for certificate titles*/
   margin: 10px;
-  
+
 }
+
 .certificate-list a {
-  text-decoration: none; /*Remove underline from links*/
+  text-decoration: none;
+  /*Remove underline from links*/
 }
+
 .certificate-list a:hover {
-    
-    text-decoration: underline; /*Underline on hover for links*/
+
+  text-decoration: underline;
+  /*Underline on hover for links*/
 }
 
 .certificate-list #text {
-    color: #49494a; /*Color for the bullet point*/
-    margin-left: 24px;
+  color: #49494a;
+  /*Color for the bullet point*/
+  margin-left: 24px;
 }
+
 /* 🌟 Media Query for Small Screens */
 @media (max-width: 768px) {
-    .certificate-list {
-      margin-top: 40px;
-        margin-left: 30px; /*Reduce left margin for small screens*/
-        margin-right: 30px; /*Reduce right margin for small screens*/
-    }
-    .certificate-list h4 {
-        font-size: 12px; /*Reduce font size for certificate titles on small screens*/
-    }
-    .project-header h2 {
-      font-size: 1.4rem; /*Reduce font size for project header on small screens*/
-      padding-bottom: 0px;
-      margin-bottom: -30px;
-    }
-    #text{
-      font-size: 12px;
-      padding-top: 0px;
-      margin-top: -10px;
-    }
+  .certificate-list {
+    margin-top: 40px;
+    margin-left: 30px;
+    /*Reduce left margin for small screens*/
+    margin-right: 30px;
+    /*Reduce right margin for small screens*/
+  }
+
+  .certificate-list h4 {
+    font-size: 12px;
+    /*Reduce font size for certificate titles on small screens*/
+  }
+
+  .project-header h2 {
+    font-size: 1.4rem;
+    /*Reduce font size for project header on small screens*/
+    padding-bottom: 0px;
+    margin-bottom: -30px;
+  }
+
+  #text {
+    font-size: 12px;
+    padding-top: 0px;
+    margin-top: -10px;
+  }
 }
 
 /* Education Details */
@@ -286,24 +525,26 @@ nav ul li a{
 }
 
 .education-card strong {
-  color: #484747; /* your orange theme */
+  color: #484747;
+  /* your orange theme */
 }
 
 @media (max-width: 768px) {
- .education-card{
-  padding: 13px;
-  margin: 20px;
+  .education-card {
+    padding: 13px;
+    margin: 20px;
     margin-top: 50px;
- }
- .education-card p{
-  font-size: 12px;
- }
+  }
+
+  .education-card p {
+    font-size: 12px;
+  }
 }
 
 /* About Me */
 .about-me {
   overflow-x: hidden;
-  width:fit-content;
+  width: fit-content;
   padding: 30px;
   border-radius: 12px;
   /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); */
@@ -321,13 +562,14 @@ nav ul li a{
 }
 
 .about-me p {
-    margin-left: 36px;
-    margin-right: 36px;
-    justify-content: space-around;
+  margin-left: 36px;
+  margin-right: 36px;
+  justify-content: space-around;
   line-height: 1.6;
   font-size: 1rem;
   margin-bottom: 15px;
-  text-align: justify; /* Justify text for better readability */
+  text-align: justify;
+  /* Justify text for better readability */
 }
 
 .resume-container {
@@ -357,19 +599,22 @@ nav ul li a{
 
 
 @media (max-width: 768px) {
-  .about-me{
+  .about-me {
     margin: -10px;
     padding: 5px;
   }
-  .about-me h2{
+
+  .about-me h2 {
     font-size: 1.4rem;
     margin-top: 15px;
     margin-bottom: 10px;
   }
-  .about-me p{
+
+  .about-me p {
     font-size: 0.7rem;
   }
-  .resume-container{
+
+  .resume-container {
     margin-top: -10px;
   }
 }

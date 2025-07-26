@@ -1,54 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css\styles.css">
-    <title>Manasa H K</title>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css\styles.css">
+  <title>Manasa H K</title>
+  <script src="https://kit.fontawesome.com/e0562795f4.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
-    <nav>
-        <div class="logo">
-            <h1><a href="index.html">Manasa H K</a></h1>
-        </div>
+  <div class="blur-overlay" id="blurOverlay"></div>
 
-        <ul id="menuList">
-            <li><a href="index.html">About Me</a></li>
-            <li><a href="education.html">Education</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="certificates.html">Certificates</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-        <div class="menu-icon">
-            <i class="fa-solid fa-bars" onclick="toggleMenu()"></i>
-        </div>
-    </nav>
-    <script>
-        let menuList = document.getElementById("menuList");
-        menuList.style.maxHeight = "0px";
+  <nav>
+    <div class="menu-icon">
+      <i class="fa-solid fa-bars" onclick="toggleMenu()"></i>
+    </div>
+    <div class="logo">
+      <h1><a href="index.html">Manasa H K</a></h1>
+    </div>
 
-        function toggleMenu() {
-            if (menuList.style.maxHeight == "0px") {
-                menuList.style.maxHeight = "300px";
-            } else {
-                menuList.style.maxHeight = "0px";
-            }
-        }
-    </script>
-    <script src="https://kit.fontawesome.com/e0562795f4.js" crossorigin="anonymous"></script>
-    
-    <div class="project-header">
-    <h2 style="text-align: center;">Contact Details</h2></div>
-    <div class="contact-card">
+    <ul id="menuList" class="sidebar-menu">
+      <li><a href="index.html">About Me</a></li>
+      <li><a href="education.html">Education</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="certificates.html">Certificates</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="project-header">
+    <h2 style="text-align: center;">Contact Details</h2>
+  </div>
+  <div class="contact-card">
     <div class="contact-details">
-        <p><i class="fa-solid fa-envelope"></i><strong> Email:</strong> <i>manasahk736@gmail.com</i></p>
-        <p><i class="fa-solid fa-phone"></i><strong> Phone:</strong> <i>+91 7483976862</i></p>
-        <p><i class="fa-brands fa-github"></i><strong> GitHub:</strong> <i><a href="https://github.com/manasahk28" target="_blank">github.com/manasahk28</a></i></p>
-        <p><i class="fa-brands fa-linkedin"></i><strong> LinkedIn:</strong> <i><a href="https://www.linkedin.com/in/manasa-h-k-a80a22294/" target="_blank">linkedin.com/in/manasa-h-k-a80a22294</a></i></p>
-        <p><i class="fa-brands fa-x-twitter"></i><strong> Twitter:</strong> <i><a href="https://x.com/manasa736" target="_blank">twitter.com/manasahk736</a></i></p>
+      <p><i class="fa-solid fa-envelope"></i><strong> Email:</strong> <i>manasahk736@gmail.com</i></p>
+      <p><i class="fa-solid fa-phone"></i><strong> Phone:</strong> <i>+91 7483976862</i></p>
+      <p><i class="fa-brands fa-github"></i><strong> GitHub:</strong> <i><a href="https://github.com/manasahk28"
+            target="_blank">github.com/manasahk28</a></i></p>
+      <p><i class="fa-brands fa-linkedin"></i><strong> LinkedIn:</strong> <i><a
+            href="https://www.linkedin.com/in/manasa-h-k-a80a22294/"
+            target="_blank">linkedin.com/in/manasa-h-k-a80a22294</a></i></p>
+      <p><i class="fa-brands fa-x-twitter"></i><strong> Twitter:</strong> <i><a href="https://x.com/manasa736"
+            target="_blank">twitter.com/manasahk736</a></i></p>
     </div>
-    </div>
-</body>
-</html>
+  </div>
 
+  <script>
+    const menu = document.getElementById("menuList");
+    const overlay = document.getElementById("blurOverlay");
+
+    function toggleMenu() {
+      menu.classList.toggle("open");
+      overlay.classList.toggle("active");
+    }
+
+    overlay.addEventListener("click", toggleMenu);
+  </script>
+
+</body>
+
+</html>

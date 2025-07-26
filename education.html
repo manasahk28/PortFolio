@@ -1,52 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css\styles.css">
-    <title>Manasa H K</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css\styles.css">
+  <title>Manasa H K</title>
+  <script src="https://kit.fontawesome.com/e0562795f4.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
-    <nav>
-        <div class="logo">
-            <h1><a href="index.html">Manasa H K</a></h1>
-        </div>
+  <div class="blur-overlay" id="blurOverlay"></div>
 
-        <ul id="menuList">
-            <li><a href="index.html">About Me</a></li>
-            <li><a href="education.html">Education</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="certificates.html">Certificates</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-        <div class="menu-icon">
-            <i class="fa-solid fa-bars" onclick="toggleMenu()"></i>
-        </div>
-    </nav>
-    <script>
-        let menuList = document.getElementById("menuList");
-        menuList.style.maxHeight = "0px";
+  <nav>
+    <div class="menu-icon">
+      <i class="fa-solid fa-bars" onclick="toggleMenu()"></i>
+    </div>
+    <div class="logo">
+      <h1><a href="index.html">Manasa H K</a></h1>
+    </div>
 
-        function toggleMenu() {
-            if (menuList.style.maxHeight == "0px") {
-                menuList.style.maxHeight = "300px";
-            } else {
-                menuList.style.maxHeight = "0px";
-            }
-        }
-    </script>
-    <script src="https://kit.fontawesome.com/e0562795f4.js" crossorigin="anonymous"></script>
+    <ul id="menuList" class="sidebar-menu">
+      <li><a href="index.html">About Me</a></li>
+      <li><a href="education.html">Education</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="certificates.html">Certificates</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
 
-    <div class="project-header">
-    <h2 style="text-align: center;">Education</h2></div>
-    <div class="education-card">
-  <p>Currently pursuing <strong>B.Tech (Hons) in Computer Science and Engineering</strong> @ RV University, BLR, Karnataka, India</p>
-  <p><strong>CGPA:</strong> 9.0</p>
-  <p><strong>Expected Graduation:</strong> 2027</p>
-  <p><strong>Relevant Coursework:</strong> Data Structures, Algorithms, Database Management Systems, Operating Systems, Computer Networks, Discrete Math</p>
-  <p><strong>Extracurricular Activities:</strong> Selected for the Infosys Foundation Program - Hyderabad, where I participated in sessions on Women Empowerment. Participated in several hackathons.</p>
-  <p><strong>Skills:</strong> Proficient in Python, Java, C, HTML, CSS, JavaScript, React; Familiar with SQL, Git, and Agile methodologies</p>
-</div>
+  <div class="project-header">
+    <h2 style="text-align: center;">Education</h2>
+  </div>
+  <div class="education-card">
+    <p>Currently pursuing <strong>B.Tech (Hons) in Computer Science and Engineering</strong> @ RV University, BLR,
+      Karnataka, India</p>
+    <p><strong>CGPA:</strong> 9.0</p>
+    <p><strong>Expected Graduation:</strong> 2027</p>
+    <p><strong>Relevant Coursework:</strong> Data Structures, Algorithms, Database Management Systems, Operating
+      Systems, Computer Networks, Discrete Math</p>
+    <p><strong>Extracurricular Activities:</strong> Selected for the Infosys Foundation Program - Hyderabad, where I
+      participated in sessions on Women Empowerment. Participated in several hackathons.</p>
+    <p><strong>Skills:</strong> Proficient in Python, Java, C, HTML, CSS, JavaScript, React; Familiar with SQL, Git, and
+      Agile methodologies</p>
+  </div>
+
+  <script>
+    const menu = document.getElementById("menuList");
+    const overlay = document.getElementById("blurOverlay");
+
+    function toggleMenu() {
+      menu.classList.toggle("open");
+      overlay.classList.toggle("active");
+    }
+
+    overlay.addEventListener("click", toggleMenu);
+  </script>
 
 </body>
+
 </html>
