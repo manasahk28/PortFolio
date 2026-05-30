@@ -1,151 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --bg-primary: #0a0e17;
+  --bg-secondary: #0f1422;
+  --bg-card: rgba(22, 28, 45, 0.65);
+  --border-color: rgba(255, 255, 255, 0.08);
+  --accent-teal: #00f2fe;
+  --accent-purple: #4facfe;
+  --text-primary: #f3f4f6;
+  --text-secondary: #d1d5db;
+  --text-muted: #9ca3af;
+  --gradient-primary: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+  --shadow-card: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+}
+
+@keyframes pageEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+    filter: blur(3px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
 body {
   margin: 0px;
-  /*Remove default margin from body*/
   padding: 0px;
-  /*Remove default padding from body*/
-  background-color: #e4e4e6;
+  background-color: var(--bg-primary);
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(15, 20, 34, 0.95) 0%, rgba(10, 14, 23, 1) 90.1%),
+    radial-gradient(circle at 90% 10%, rgba(0, 242, 254, 0.03) 0%, transparent 40%),
+    radial-gradient(circle at 10% 90%, rgba(79, 172, 254, 0.03) 0%, transparent 40%);
+  color: var(--text-primary);
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   transition: filter 0.4s ease;
   position: relative;
   overflow-x: hidden;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  animation: pageEntrance 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 html,
 body {
   width: 100%;
   overflow-x: hidden;
-  /*Set width of html and body to 100%*/
 }
 
 body::-webkit-scrollbar {
-  display: none;
+  width: 8px;
 }
 
+body::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+body::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 242, 254, 0.3);
+}
+
+/* Navigation */
 nav {
-  background-color: rgb(74, 73, 73);
-  /*Background color of the navbar*/
-  padding: 10px;
-  /*Padding around the navbar*/
+  background: rgba(10, 14, 23, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-color);
+  padding: 10px 40px;
   display: flex;
-  /*Use flexbox for layout*/
   align-items: center;
-  /*Center items vertically*/
   justify-content: space-between;
-  /*Space between items*/
-  position: relative;
-  /*Position relative for dropdowns*/
-  height: 60px;
-  /*Height of the navbar*/
-  font-family: 'Segoe UI', sans-serif;
-  /*Font family for the logo link*/
+  position: sticky;
+  top: 0;
+  height: 65px;
+  z-index: 1000;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
 .logo {
-  color: white;
-  /*Text color of the logo*/
-  margin: 50px;
+  margin: 0;
   cursor: pointer;
-  font-family: 'Segoe UI', sans-serif;
-  /*Font family for the logo link*/
+}
 
+.logo h1 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 800;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.5px;
 }
 
 .logo a {
   text-decoration: none;
-  /*Remove underline from logo link*/
-  color: white;
-  /*Text color of the logo link*/
-  font-size: 24px;
-  /*Font size of the logo link*/
-  font-family: 'Segoe UI', sans-serif;
-  /*Font family for the logo link*/
+  color: inherit;
 }
 
-.logo h1 a {
-  color: white;
-  text-decoration: none;
-  margin-left: 20px;
-}
-
-nav ul {
-  display: flex;
-  /*Use flexbox for the list*/
-  align-items: center;
-  /*Center items vertically*/
-  gap: 0px;
-  /* Decrease this value for less space, try 24px or 16px */
-  margin: 0;
-  padding: 0;
-}
-
-nav ul li {
-  text-decoration: none;
-  /*Remove underline from links*/
-  list-style: none;
-  /*Remove bullet points from list items*/
-  font-size: 16px;
-}
-
-nav ul li a {
-  color: white;
-  text-decoration: none;
-  padding: 10px 15px;
-  display: block;
-  transition: transform 0.2s cubic-bezier(0.4, 2, 0.6, 1), color 0.2s;
-}
-
-/* Pop up effect on hover */
-nav ul li a:hover {
-  transform: scale(1.18);
-  color: #1f1f1f; /* Optional: gold/yellow highlight, change as you like */
-  font-weight: 600;
-  z-index: 2;
-}
-
-.menu-icon {
-  margin-left: 14px;
-  display: none;
-  /*Hide the menu icon by default*/
-  font-size: 24px;
-  cursor: pointer;
-  color: white;
-}
-
-/* Sidebar Menu */
+/* Sidebar Menu (Mobile Default) */
 .sidebar-menu {
   list-style: none;
   position: fixed;
   top: 0;
   left: -280px;
-  width: 200px;
+  width: 240px;
   height: 100vh;
-  background-color: rgb(74, 73, 73);
-  color: white;
-  padding-top: 10px;
+  background: rgba(10, 14, 23, 0.98);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-right: 1px solid var(--border-color);
+  padding: 80px 20px 20px 20px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  transition: left 0.3s ease;
+  gap: 12px;
+  margin: 0;
+  transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 999;
-  font-size: 18px;
+}
+
+.sidebar-menu li {
+  list-style: none;
 }
 
 .sidebar-menu a {
   display: block;
-  color: white;
+  color: var(--text-secondary);
   text-decoration: none;
-  padding: 0px 0px;
-  margin-right: 30px;
-  transition: transform 0.2s ease;
+  padding: 12px 16px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.sidebar-menu a:hover {
+  color: var(--accent-teal);
+  background: rgba(0, 242, 254, 0.08);
+  padding-left: 24px;
 }
 
 .sidebar-menu.open {
   left: 0;
 }
 
-/* When sidebar is active (after clicking the menu icon) */
-.sidebar-menu.active {
-  transform: translateX(0);
+.menu-icon {
+  display: block;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--text-primary);
+  transition: color 0.3s;
+}
+
+.menu-icon:hover {
+  color: var(--accent-teal);
 }
 
 /* Blur Overlay */
@@ -155,12 +169,13 @@ nav ul li a:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  backdrop-filter: blur(3px);
-  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  background-color: rgba(5, 7, 12, 0.6);
   z-index: 998;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.4s ease;
 }
 
 .blur-overlay.active {
@@ -168,101 +183,367 @@ nav ul li a:hover {
   pointer-events: all;
 }
 
-@media (max-width: 768px) {
+/* Headers */
+.project-header {
+  text-align: center;
+  margin: 60px 0 40px 0;
+}
+
+.project-header h2 {
+  font-size: 36px;
+  font-weight: 800;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  margin: 0;
+  letter-spacing: -1px;
+}
+
+/* Cards Glassmorphism styling */
+.about-me,
+.project-card,
+.education-card,
+.certificate-list,
+.contact-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 16px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.about-me:hover,
+.project-card:hover,
+.education-card:hover,
+.certificate-list:hover,
+.contact-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(0, 242, 254, 0.25);
+  box-shadow: 0 12px 40px 0 rgba(0, 242, 254, 0.12);
+}
+
+/* About Me Content */
+.about-me {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 40px;
+}
+
+.about-me h2 {
+  font-size: 28px;
+  font-weight: 800;
+  margin-top: 0;
+  margin-bottom: 24px;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.about-me p {
+  color: var(--text-secondary);
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+.about-me strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.about-me a {
+  color: var(--accent-teal);
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(0, 242, 254, 0.4);
+  transition: all 0.3s ease;
+}
+
+.about-me a:hover {
+  color: #ffffff;
+  border-bottom-color: #ffffff;
+}
+
+/* Resume Button */
+.resume-container {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.resume-button {
+  padding: 14px 28px;
+  background: var(--gradient-primary);
+  color: #05070c;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.resume-button:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 6px 20px rgba(0, 242, 254, 0.55);
+  filter: brightness(1.1);
+}
+
+/* Projects page specifics */
+.project-card {
+  max-width: 900px;
+  margin: 0 auto 30px auto;
+  display: flex;
+  padding: 30px;
+  gap: 30px;
+}
+
+.project-card img {
+  width: 220px;
+  height: 150px;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.project-details {
+  flex: 1;
+}
+
+.project-details h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-top: 0;
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+}
+
+.project-details p {
+  color: var(--text-secondary);
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.project-details a {
+  color: var(--accent-teal);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.project-details a:hover {
+  color: var(--accent-purple);
+  text-decoration: underline;
+}
+
+/* Education Page Specifics */
+.education-card {
+  max-width: 900px;
+  margin: 0 auto 50px auto;
+  padding: 40px;
+}
+
+.education-card p {
+  margin: 16px 0;
+  font-size: 16px;
+  color: var(--text-secondary);
+}
+
+.education-card strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.education-card a {
+  color: var(--accent-teal);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.education-card a:hover {
+  text-decoration: underline;
+  color: var(--accent-purple);
+}
+
+/* Certificate Page Specifics */
+.certificate-list {
+  max-width: 900px;
+  margin: 0 auto 60px auto;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.certificate-list h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 4px 0;
+  line-height: 1.4;
+}
+
+.certificate-list h4 a {
+  color: var(--accent-teal);
+  text-decoration: none;
+  font-size: 14px;
+  opacity: 0.8;
+  transition: all 0.3s;
+  display: inline-block;
+  margin-left: 6px;
+}
+
+.certificate-list h4 a:hover {
+  opacity: 1;
+  transform: scale(1.1);
+  color: var(--accent-purple);
+}
+
+.certificate-list span#text {
+  color: var(--text-secondary);
+  font-size: 14px;
+  margin-left: 14px;
+  display: block;
+}
+
+/* Contact Page Specifics */
+.contact-card {
+  max-width: 600px;
+  margin: 0 auto 60px auto;
+  padding: 40px;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-details p {
+  margin: 0;
+  font-size: 18px;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  white-space: nowrap;
+}
+
+.contact-details i {
+  color: var(--accent-teal);
+  font-size: 20px;
+  width: 24px;
+  text-align: center;
+}
+
+.contact-details a {
+  color: var(--accent-purple);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+  white-space: nowrap;
+}
+
+.contact-details a:hover {
+  color: var(--accent-teal);
+  text-decoration: underline;
+}
+
+/* 🌟 Responsive Media Queries */
+@media (max-width: 900px) {
+  nav {
+    padding: 10px 20px;
+  }
+  
   nav ul {
-    position: absolute;
-    /*Position the menu absolutely*/
-    top: 20px;
-    /*Position below the navbar*/
-    left: 0;
-    /*Align to the left of the screen*/
-    right: 0;
-    /*Align to the right of the screen*/
-    flex-direction: column;
-    /*Stack items vertically*/
-    text-align: center;
-    /*Center align text*/
-    background-color: rgb(74, 73, 73);
-    /*Background color of the dropdown menu*/
-    gap: 30;
-    /*No gap between items in dropdown*/
-    overflow: hidden;
-    /*Hide overflow for dropdown*/
+    display: none !important;
   }
-
-  .logo {
-    margin: 0 auto !important;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    width: 100%;
-  }
-
-  .logo h1,
-  .logo h1 a {
-    margin: 0 auto !important;
-    text-align: center;
-    width: 100%;
-    font-size: 1.4rem;
-  }
-
-  .logo {
-    margin: 5px;
-    /*Remove margin from logo on small screens*/
-    padding: 10px;
-    /*Padding around the logo*/
-  }
-
-  nav ul li {
-    padding: 20px;
-    /*Padding for list items in dropdown*/
-  }
-
+  
   .menu-icon {
-    display: block;
-    /*Show the menu icon on small screens*/
-    font-size: 20px;
-    /*Font size for the menu icon*/
-    color: white;
-    /*Color of the menu icon*/
-    cursor: pointer;
-    /*Pointer cursor for clickable icon*/
-    padding: 10px;
-    /*Padding around the menu icon*/
+    display: block !important;
   }
 
-  #menuList {
-    transition: all 0.5s ease;
-    /*Smooth transition for dropdown menu*/
-    gap: 0px;
+  .about-me,
+  .project-card,
+  .education-card,
+  .certificate-list,
+  .contact-card {
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 24px;
   }
 
-  .sidebar-menu {
-    padding-top: 20px;
-    margin-top: 0;
-    margin-left: 0;
-    padding-left: 0;
-    top: 0 !important;
-    width: 250px;
+  .project-card {
+    flex-direction: column;
     align-items: center;
-    /* Sidebar will start from the very top on small screens */
+    text-align: left;
+    gap: 20px;
+  }
+
+  .project-card img {
+    width: 100%;
+    max-width: 320px;
+    height: 180px;
+  }
+
+  .project-header h2 {
+    font-size: 28px;
+  }
+
+  .about-me h2 {
+    font-size: 24px;
+  }
+
+  .about-me p {
+    font-size: 14px;
+  }
+  
+  .resume-container {
+    margin-top: 20px;
   }
 }
 
-/* Show navbar menu and hide hamburger icon on large screens */
-@media (min-width: 900px) {
+@media (min-width: 901px) {
   .sidebar-menu {
     display: flex !important;
-    flex-direction: row;
-    position: static;
-    background: none;
-    box-shadow: none;
-    width: auto;
-    height: auto;
-    gap: 2rem;
-    z-index: 1;
+    flex-direction: row !important;
+    position: static !important;
+    background: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border-right: none !important;
+    box-shadow: none !important;
+    width: auto !important;
+    height: auto !important;
+    gap: 8px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    z-index: 1 !important;
+  }
+
+  .sidebar-menu a {
+    padding: 8px 16px !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    color: var(--text-secondary) !important;
+    border-radius: 8px !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  }
+
+  .sidebar-menu a:hover {
+    color: var(--accent-teal) !important;
+    background: rgba(0, 242, 254, 0.08) !important;
+    transform: translateY(-1px) !important;
+    padding-left: 16px !important;
   }
 
   .menu-icon {
@@ -274,347 +555,16 @@ nav ul li a:hover {
   }
 }
 
-.contact-details {
-  text-align: center;
-  padding: 10px;
-  font-size: 20px;
-}
-
-.contact-details p:hover {
-  color: #6b6b6c;
-  /*Change color on hover for contact details*/
-}
-
-.contact-card {
-  margin: 50px;
-  margin-left: 300px;
-  margin-right: 300px;
-  padding: 20px;
-  /*Padding around contact card*/
-  background-color: #f3f1f1;
-  border-radius: 12px;
-  /*Rounded corners for contact card*/
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  /*Shadow effect for contact card*/
-}
-
-@media (max-width: 768px) {
-  .contact-card {
-    margin-left: 40px;
-    /*Reduce left margin for small screens*/
-    margin-right: 40px;
-    /*Reduce right margin for small screens*/
-  }
-
+@media (max-width: 480px) {
   .contact-details p {
-    font-size: 16px;
-    /*Reduce font size for contact details on small screens*/
-  }
-}
-
-.project-card {
-  margin: 20px;
-  margin-left: 80px;
-  margin-right: 80px;
-  display: flex;
-  /*Use flexbox for layout*/
-  margin-bottom: 40px;
-  /*Space between project cards*/
-  padding: 20px;
-  /*Padding around project cards*/
-  border-radius: 12px;
-  /*Rounded corners for project cards*/
-  background-color: #f3f1f1;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  /*Shadow effect for project cards*/
-}
-
-.project-card img {
-  width: 200px;
-  /*Width of the project image*/
-  height: auto;
-  /*Height of the project image*/
-  border-radius: 5px;
-  /*Rounded corners for project image*/
-  margin-right: 20px;
-  /*Space between image and text*/
-}
-
-.project-header {
-  text-align: left;
-  font-size: 24px;
-  /*Font size for project header*/
-  margin-bottom: 10px;
-  /*Space below project header*/
-  font-family: 'Segoe UI', sans-serif;
-  color: #434342;
-  /*Color for project header*/
-
-}
-
-.project-details {
-  flex: 1;
-  /*Take remaining space for project details*/
-}
-
-.project-details h2 {
-  font-size: 24px;
-  /*Font size for project title*/
-  margin-bottom: 10px;
-  /*Space below project title*/
-}
-
-.project-details a {
-  color: #007bff;
-  /*Link color for project links*/
-  text-decoration: none;
-  /*Remove underline from links*/
-}
-
-.project-details a:hover {
-  text-decoration: underline;
-  /*Underline on hover for links*/
-}
-
-/* 🌟 Media Query for Small Screens */
-@media (max-width: 768px) {
-  .project-card {
+    white-space: normal !important;
     flex-direction: column;
-    text-align: left;
-    align-items: center;
-    /*Center items horizontally*/
-    margin-left: 30px;
-    /*Reduce left margin for small screens*/
-    margin-right: 30px;
-    /*Reduce right margin for small screens*/
-    margin-top: 50px;
-    margin-bottom: 40px;
-    padding-bottom: 10px;
+    align-items: flex-start;
+    gap: 4px;
   }
 
-  .project-header h2 {
-    font-size: 20px;
-    /*Reduce font size for project header on small screens*/
-  }
-
-  .project-details h2 {
-    font-size: 20px;
-    /*Reduce font size for project title on small screens*/
-  }
-
-  .project-card h3 {
-    text-align: center;
-  }
-
-  .project-image {
-    width: 100%;
-    max-width: 400px;
-  }
-
-  .project-description h3 {
-    font-size: 1.0rem;
-  }
-
-  .project-description p {
-    font-size: 0.9rem;
-  }
-
-  .project-description a {
-    font-size: 0.9rem;
-  }
-}
-
-/* Certificates */
-.certificate-list {
-  display: flex;
-  flex-direction: column;
-  margin-left: 200px;
-  margin-right: 200px;
-  /*Margin for certificate list*/
-  margin-bottom: 50px;
-  padding: 20px;
-  /*Padding around certificate list*/
-  background-color: #f3f1f1;
-  border: none;
-  border-radius: 5px;
-  font-family: 'Segoe UI', sans-serif;
-  line-height: 1.6;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-  transition: box-shadow 0.3s ease;
-}
-
-.certificate-list:hover {
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
-  /*Shadow effect on hover for certificate list*/
-}
-
-.certificate-list h4 {
-  font-size: 15px;
-  /*Font size for certificate titles*/
-  margin: 10px;
-
-}
-
-.certificate-list a {
-  text-decoration: none;
-  /*Remove underline from links*/
-}
-
-.certificate-list a:hover {
-
-  text-decoration: underline;
-  /*Underline on hover for links*/
-}
-
-.certificate-list #text {
-  color: #49494a;
-  /*Color for the bullet point*/
-  margin-left: 24px;
-}
-
-/* 🌟 Media Query for Small Screens */
-@media (max-width: 768px) {
-  .certificate-list {
-    margin-top: 40px;
-    margin-left: 30px;
-    /*Reduce left margin for small screens*/
-    margin-right: 30px;
-    /*Reduce right margin for small screens*/
-  }
-
-  .certificate-list h4 {
-    font-size: 12px;
-    /*Reduce font size for certificate titles on small screens*/
-  }
-
-  .project-header h2 {
-    font-size: 1.4rem;
-    /*Reduce font size for project header on small screens*/
-    padding-bottom: 0px;
-    margin-bottom: -30px;
-  }
-
-  #text {
-    font-size: 12px;
-    padding-top: 0px;
-    margin-top: -10px;
-  }
-}
-
-/* Education Details */
-.education-card {
-  background-color: #f3f1f1;
-  border: none;
-  border-radius: 5px;
-  padding: 40px;
-  margin: 30px 50px;
-  font-family: 'Segoe UI', sans-serif;
-  line-height: 1.6;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-  transition: box-shadow 0.3s ease;
-}
-
-.education-card:hover {
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
-}
-
-.education-card p {
-  margin: 10px 0;
-  font-size: 1rem;
-  color: #333;
-}
-
-.education-card strong {
-  color: #484747;
-  /* your orange theme */
-}
-
-@media (max-width: 768px) {
-  .education-card {
-    padding: 13px;
-    margin: 20px;
-    margin-top: 50px;
-  }
-
-  .education-card p {
-    font-size: 12px;
-  }
-}
-
-/* About Me */
-.about-me {
-  overflow-x: hidden;
-  width: fit-content;
-  padding: 30px;
-  border-radius: 12px;
-  /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); */
-  font-family: 'Segoe UI', sans-serif;
-  color: #333;
-  margin-bottom: 40px;
-}
-
-.about-me h2 {
-  margin-top: 0px;
-  color: #434342;
-  margin-bottom: 20px;
-  font-size: 1.8rem;
-  margin-left: 36px;
-}
-
-.about-me p {
-  margin-left: 36px;
-  margin-right: 36px;
-  justify-content: space-around;
-  line-height: 1.6;
-  font-size: 1rem;
-  margin-bottom: 15px;
-  text-align: justify;
-  /* Justify text for better readability */
-}
-
-.resume-container {
-  display: flex;
-  justify-content: center;
-  margin: 30px 0;
-  margin-top: -60px;
-
-}
-
-.resume-button {
-  padding: 12px 20px;
-  background-color: #676866;
-  color: #fff;
-  text-decoration: none;
-  font-weight: 600;
-  border-radius: 2px;
-  transition: background-color 0.3s ease, transform 0.2s;
-  font-family: 'Segoe UI', sans-serif;
-
-}
-
-.resume-button:hover {
-  background-color: #828180;
-  transform: scale(1.03);
-}
-
-
-@media (max-width: 768px) {
-  .about-me {
-    margin: -10px;
-    padding: 5px;
-  }
-
-  .about-me h2 {
-    font-size: 1.4rem;
-    margin-top: 15px;
-    margin-bottom: 10px;
-  }
-
-  .about-me p {
-    font-size: 0.7rem;
-  }
-
-  .resume-container {
-    margin-top: -10px;
+  .contact-details a {
+    white-space: normal !important;
+    word-break: break-all;
   }
 }
